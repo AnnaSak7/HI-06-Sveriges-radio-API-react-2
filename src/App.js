@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import Banner from './components/Banner';
+import Main from './components/Main';
 
 function App() {
+  const [isHomeClicked, setIsHomeClicked] = useState(false);
+
+  const onClickHomeHandler = useCallback(() => {
+    setIsHomeClicked(true);
+  });
+
+  useEffect(() => {
+    setIsHomeClicked(false);
+  }, [onClickHomeHandler]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar onClickHome={onClickHomeHandler} />
+      <Banner />
+      <Main homeClicked={isHomeClicked} />
+    </>
   );
 }
 
