@@ -1,0 +1,23 @@
+tr {
+  line-height: 2.5rem;
+}
+td {
+  color: #ccc5b9;
+  font-size: 1.5rem;
+  line-height: 1.7rem;
+  border-top: 1px solid #36372f;
+  transition: background 0.3s ease;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+.episodeImage {
+  height: 7rem;
+  width: 7rem;
+}
+
+.audio {
+  width: 250px;
+  height: 35px;
+}

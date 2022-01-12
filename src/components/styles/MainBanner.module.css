@@ -1,0 +1,33 @@
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 300px;
+}
+
+.bannerH1 {
+  font-size: 5rem;
+  font-family: creepyFont;
+  color: #ccc5b9;
+  text-shadow: 20px 20px 10px #460101;
+  margin-bottom: 0;
+}
+
+.terror {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2rem;
+  color: #000;
+  font-weight: 700;
+  text-shadow: 1px 5px 10px #460101;
+  background-color: rgba(210, 204, 204, 0.331);
+}
+
+.swedish {
+  font-size: 1rem;
+  color: #000;
+  font-weight: 600;
+  text-shadow: 1px 5px 10px #460101;
+  background-color: rgba(210, 204, 204, 0.399);
+}

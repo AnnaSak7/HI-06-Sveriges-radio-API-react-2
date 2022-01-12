@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-
 import Episode from './Episode';
+
+import classes from '../styles/Playlist.module.css';
 
 const Playlist = (props) => {
   const [clickedProgramId, setClickedProgramId] = useState(null);
@@ -46,7 +47,7 @@ const Playlist = (props) => {
 
   return (
     <>
-      <table>
+      <table className={classes.playlist}>
         <thead>
           <tr>
             <th>&nbsp;</th>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 
+import classes from '../styles/FourCards.module.css';
+
 const fourPrograms = ['4947', '4845', '5413', '5188'];
 
 const FourCards = (props) => {
@@ -37,6 +39,7 @@ const FourCards = (props) => {
   };
 
   const fetchFourProgramsHandler = async () => {
+    //declare programsinarray here otherwise when state changes the same array will be stored and be piled up
     var programsInArray = [];
     const Serie = await fetchProgramHandler(fourPrograms[0]);
     programsInArray.push(Serie);
@@ -59,15 +62,24 @@ const FourCards = (props) => {
   }, []);
 
   const onClickProgramHandler = (id) => {
-    props.onClickProgram(id);
+    props.onClickProgram(id, programs);
+    console.log('FourCars: clicked');
   };
 
   return (
-    <>
-      {programs && (
-        <Card programs={programs} onClickProgram={onClickProgramHandler} />
-      )}
-    </>
+    <div className={classes.container}>
+      {programs &&
+        programs.map((p) => (
+          <Card
+            key={p.id}
+            id={p.id}
+            img={p.img}
+            title={p.title}
+            description={p.description}
+            onClickProgram={onClickProgramHandler}
+          />
+        ))}
+    </div>
   );
 };
 

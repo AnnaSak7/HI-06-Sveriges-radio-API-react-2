@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container2 #playlist {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  width: 90vw;
+  height: auto;
+  border-spacing: 30px;
+}
+
+.container2 #playlist th,
+.container2 #playlist td {
+  padding: 15px;
+  vertical-align: middle;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.container2 #playlist th {
+  color: #868975;
+  font-size: 1.5rem;
+  padding: 15px;
+  cursor: default;
+}
+
+.container2 #playlist tr {
+  cursor: pointer;
+  line-height: 2.5rem;
+}
+
+.container2 #playlist tr td {
+  font-size: 1.8rem;
+  border-top: 1px solid #36372f;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  padding: 10px;
+}
+
+.container2 #playlist .episode-image {
+  height: 7rem;
+  width: 7rem;
+}

@@ -1,0 +1,55 @@
+.header {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #131313;
+  text-align: center;
+}
+
+.logo {
+  color: #fff;
+}
+.header h1 {
+  font-size: 3rem;
+  font-family: creepyFont;
+  margin: 0;
+  padding-top: 15px;
+  padding-left: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  display: block;
+  text-decoration: none;
+  color: #666;
+  padding: 20px 35px;
+  transition: all 0.3s;
+}
+
+nav ul li ul {
+  display: block;
+}
+
+nav ul li ul li {
+  padding: 20px 35px;
+}
+
+nav ul li ul li:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+nav ul li.current,
+nav ul li:hover {
+  color: #fff;
+  cursor: pointer;
+}

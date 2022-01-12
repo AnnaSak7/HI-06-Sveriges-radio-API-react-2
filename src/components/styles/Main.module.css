@@ -1,0 +1,15 @@
+.homeMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.homeMainH2 {
+  font-size: 3rem;
+  font-family: creepyFont;
+  color: #ccc5b9;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}

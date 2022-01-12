@@ -1,0 +1,26 @@
+.playlist {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 85vw;
+  height: auto;
+  border-spacing: 30px;
+  table-layout: fixed;
+}
+
+tr {
+  line-height: 1rem;
+}
+
+th,
+td {
+  padding: 15px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+th {
+  color: #868975;
+  font-size: 1.5rem;
+  padding: 15px;
+  cursor: default;
+}

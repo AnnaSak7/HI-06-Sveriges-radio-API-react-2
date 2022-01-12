@@ -1,5 +1,6 @@
 import React from 'react';
 
+import classes from '../styles/Episode.module.css';
 const Episode = (props) => {
   //Change the display of time from seconds
   function secondsToHms(seconds) {
@@ -29,7 +30,11 @@ const Episode = (props) => {
   return (
     <tr data-index={props.index}>
       <td>
-        <img src={props.image} alt={props.title} />
+        <img
+          className={classes.episodeImage}
+          src={props.image}
+          alt={props.title}
+        />
       </td>
 
       <td>{props.title}</td>
@@ -37,7 +42,7 @@ const Episode = (props) => {
       <td>{props.description}</td>
 
       <td>
-        <audio controls>
+        <audio className={classes.audio} controls>
           <source src={props.src} type="audio/mp3" />
         </audio>
       </td>
