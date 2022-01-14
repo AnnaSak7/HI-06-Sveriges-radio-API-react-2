@@ -3,7 +3,7 @@ import Card from './Card';
 
 import classes from '../styles/FourCards.module.css';
 
-const fourPrograms = ['4947', '4845', '5413', '5188'];
+export const fourPrograms = ['4947', '4845', '5413', '5188'];
 
 const FourCards = (props) => {
   const [programs, setPrograms] = useState([]);

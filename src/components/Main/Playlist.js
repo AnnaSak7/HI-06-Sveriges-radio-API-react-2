@@ -11,7 +11,7 @@ const Playlist = (props) => {
     setClickedProgramId(props.programId);
   }, [props.programId]);
 
-  const fetchEpisodesData = async (program) => {
+  const fetchEpisodesData = useCallback(async (program) => {
     try {
       let URL = `https://api.sr.se/api/v2/episodes/index?pagination=false&format=json&programid=${program}`;
       let response = await fetch(URL);
@@ -39,11 +39,11 @@ const Playlist = (props) => {
     } catch (error) {
       console.log(error, 'There has been an error');
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchEpisodesData(clickedProgramId);
-  }, [clickedProgramId]);
+  }, [clickedProgramId, fetchEpisodesData]);
 
   return (
     <>

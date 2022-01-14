@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { ClickedProgramIdContext } from '../Main';
 
 import MainBanner from './MainBanner';
 import ProgramBanner from './ProgramBanner';
+import ListenNowBanner from './ListenNowBanner';
 
 import styles from '../styles/Banner.module.css';
 const Banner = (props) => {
+  const ProgramId = useContext(ClickedProgramIdContext);
   // const [clickedProgramId, setClickedProgramId] = useState(null);
   // const [receivedPData, setReceivedPData] = useState([]);
 
@@ -15,7 +19,7 @@ const Banner = (props) => {
   console.log('Banner is evaluated by React');
   let content = <p>Not Found</p>;
 
-  switch (props.clickedProgramId) {
+  switch (ProgramId) {
     case '4947':
       content = (
         <ProgramBanner
@@ -65,9 +69,14 @@ const Banner = (props) => {
     console.log('home clicked..? ', props.homeClicked);
     content = <MainBanner />;
   }
+
+  if (props.listenNowClicked) {
+    content = <ListenNowBanner />;
+  }
   return (
     <>
       <div className={styles.banner}>{content}</div>
+      {/* <div className={styles.banner}></div> */}
     </>
   );
 };

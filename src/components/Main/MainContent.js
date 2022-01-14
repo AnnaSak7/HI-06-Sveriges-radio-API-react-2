@@ -3,8 +3,10 @@ import FourCards from './FourCards';
 import Playlist from './Playlist';
 
 import classes from '../styles/Main.module.css';
+import ListenNowSingleCard from './ListenNowSingleCard';
+import ListenNowCards from './ListenNowCards';
 
-const Main = (props) => {
+const MainContent = (props) => {
   const [clickedProgramId, setClickedProgramId] = useState(null);
   const [isProgramClicked, setIsProgramClicked] = useState(false);
 
@@ -21,14 +23,28 @@ const Main = (props) => {
   console.log('MAIN clickedProgramId is ', clickedProgramId);
 
   return (
+    // <div className={classes.homeMain}>
+    //   <h2 className={classes.homeMainH2}>CHOOSE YOUR NIGHTMARE</h2>
+    //   {(!isProgramClicked || props.homeClicked) && (
+    //     <FourCards onClickProgram={onClickProgramHandler} />
+    //   )}
+    // </div>
+
+    // <FourCards onClickProgramHandler={onClickProgramHandler} />
+
     <div className={classes.homeMain}>
       <h2 className={classes.homeMainH2}>CHOOSE YOUR NIGHTMARE</h2>
       {(!isProgramClicked || props.homeClicked) && (
         <FourCards onClickProgram={onClickProgramHandler} />
       )}
-      {isProgramClicked && <Playlist programId={clickedProgramId} />}
+      {isProgramClicked && !props.homeClicked && !props.listenNowClicked && (
+        <Playlist programId={clickedProgramId} />
+      )}
+      {props.listenNowClicked && !props.homeClicked && !isProgramClicked && (
+        <ListenNowCards />
+      )}
     </div>
   );
 };
 
-export default Main;
+export default MainContent;
