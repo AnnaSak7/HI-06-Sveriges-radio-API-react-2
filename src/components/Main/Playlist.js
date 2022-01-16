@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
+
+import { useParams } from 'react-router-dom';
+
 import Episode from './Episode';
 
 import classes from '../styles/Playlist.module.css';
 
 const Playlist = (props) => {
-  const [clickedProgramId, setClickedProgramId] = useState(null);
   const [episodes, setEpisodes] = useState([]);
+  const id = useParams();
+  const numberId = id.ProgramId;
 
-  useEffect(() => {
-    setClickedProgramId(props.programId);
-  }, [props.programId]);
+  console.log('playlist id is ', numberId);
 
   const fetchEpisodesData = useCallback(async (program) => {
     try {
@@ -42,8 +44,8 @@ const Playlist = (props) => {
   }, []);
 
   useEffect(() => {
-    fetchEpisodesData(clickedProgramId);
-  }, [clickedProgramId, fetchEpisodesData]);
+    fetchEpisodesData(numberId);
+  }, [numberId, fetchEpisodesData]);
 
   return (
     <>

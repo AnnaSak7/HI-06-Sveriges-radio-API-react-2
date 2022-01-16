@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import ListenNowSingleCard from './ListenNowSingleCard';
 import { fourPrograms } from './FourCards';
 
 var programEpisodeData = [];
 
-const ListenNowCards = (props) => {
-  //const [episodeData, setEpisodeData] = useState([]);
+const ListenNowCards = () => {
   const [episodesListenNow, setEpisodesListenNow] = useState([]);
 
   const fetchProgramDataForListenNow = async (program) => {
@@ -38,16 +37,17 @@ const ListenNowCards = (props) => {
     fourPrograms.map((program) => fetchProgramDataForListenNow(program));
     setEpisodesListenNow(programEpisodeData);
 
+    console.log('episodesListenNow in effect is ', episodesListenNow);
     return () => {
       programEpisodeData = [];
     };
   }, []);
 
-  console.log('EpisodesListenNow is ', episodesListenNow);
+  console.log('episodesListenNow is ', episodesListenNow);
   return (
     <>
       {episodesListenNow.map((e) => {
-        return <ListenNowSingleCard episodeData={e} />;
+        return <ListenNowSingleCard info={e} />;
       })}
     </>
   );

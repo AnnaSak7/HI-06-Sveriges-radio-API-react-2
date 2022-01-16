@@ -4,11 +4,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 2rem;
+  position: relative;
 }
-.imgInListenNow {
-  width: 300px;
-  height: 300px;
+.listenNowInfoBox .imgInListenNow {
+  max-width: 270px;
+  max-height: 270px;
+}
+
+.listenNowInfoBox .imgInListenNow img {
+  max-width: inherit;
+  max-height: inherit;
+  object-fit: contain;
 }
 
 .listenNowInfoBox .episodeInfoBox {
@@ -23,13 +29,15 @@
 .listenNowInfoBox .episodeInfoBox h1 {
   font-family: 'Bebas Neue', cursive;
   font-size: 2.8rem;
+  color: #ccc5b9;
 }
 
-.listenNowInfoBox .episodeInfoBox h3 {
+.listenNowInfoBox .episodeInfoBox h2 {
   font-family: 'Bebas Neue', cursive;
   font-size: 2rem;
   color: #666;
 }
+
 .listenNowInfoBox .episodeInfoBox p {
   font-family: 'Bebas Neue', cursive;
   font-size: 1.5rem;

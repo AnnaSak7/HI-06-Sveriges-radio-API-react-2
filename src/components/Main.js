@@ -1,9 +1,6 @@
-import React, { useState, createContext } from 'react';
+import React, { useState } from 'react';
 
-import Banner from '../components/Banner/Banner';
 import MainContent from '../components/Main/MainContent';
-
-export const ClickedProgramIdContext = createContext();
 
 function Main(props) {
   //to pass program id to Banner
@@ -13,25 +10,17 @@ function Main(props) {
 
   const onProgramClickedHandler = (id, data) => {
     //setIsHomeClicked(false);
-    setProgramId(() => id);
+    setProgramId(id);
     setReceivedProgramData(() => data);
     console.log('programdata is ', props.programData);
   };
   return (
     <>
-      <ClickedProgramIdContext.Provider value={ProgramId}>
-        <Banner
-          //clickedProgramId={clickedProgramId}
-          programData={receivedProgramData}
-          homeClicked={props.HomeClicked}
-          listenNowClicked={props.listenNowClicked}
-        />
-        <MainContent
-          homeClicked={props.homeClicked}
-          listenNowClicked={props.listenNowClicked}
-          onProgramClicked={onProgramClickedHandler}
-        />
-      </ClickedProgramIdContext.Provider>
+      <MainContent
+        homeClicked={props.homeClicked}
+        listenNowClicked={props.listenNowClicked}
+        onProgramClicked={onProgramClickedHandler}
+      />
     </>
   );
 }

@@ -42,14 +42,13 @@ nav ul li ul {
 nav ul li ul li {
   padding: 20px 35px;
 }
-
-nav ul li ul li:hover {
-  color: #fff;
-  cursor: pointer;
+.link {
+  color: inherit;
+  text-decoration: inherit;
 }
 
-nav ul li.current,
+nav ul li:focus,
 nav ul li:hover {
-  color: #fff;
+  color: coral;
   cursor: pointer;
 }

@@ -1,48 +1,64 @@
-import React, { useState, useEffect, useCallback, useReducer } from 'react';
+import React, { useState, useCallback, useReducer, createContext } from 'react';
 import './App.css';
-//import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 
 import Main from './components/Main';
+import FourCards from './components/Main/FourCards';
+import Playlist from './components/Main/Playlist';
+import ListenNowCards from './components/Main/ListenNowCards';
+import ProgramBanner from './components/Banner/ProgramBanner';
+import MainBanner from './components/Banner/MainBanner';
+import ListenNowBanner from './components/Banner/ListenNowBanner';
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'HOME':
-      return { isHomeClicked: true, isListenNowClicked: false };
-    case 'LISTENNOW':
-      return { isListenNowClicked: true, isHomeClicked: false };
-    case 'RESET':
-      return { isHomeClicked: false, isListenNowClicked: false };
-    default:
-      return state;
-  }
-};
+// export const ClickedProgramIdContext = createContext();
+
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case 'HOME':
+//       return { isHomeClicked: true, isListenNowClicked: false };
+//     case 'LISTENNOW':
+//       return { isListenNowClicked: true, isHomeClicked: false };
+//     case 'RESET':
+//       return { isHomeClicked: false, isListenNowClicked: false };
+//     default:
+//       return state;
+//   }
+// };
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, {
-    isHomeClicked: false,
-    isListenNowClicked: false,
-  });
-  // const [isHomeClicked, setIsHomeClicked] = useState(false);
-  // const [isListenNowClicked, setIsListenNowClicked] = useState(false);
+  // const [state, dispatch] = useReducer(reducer, {
+  //   isHomeClicked: false,
+  //   isListenNowClicked: false,
+  // });
 
-  //to pass program id to Banner
-  const [ProgramId, setProgramId] = useState(null);
-  //to pass programs data to Banner
-  const [receivedProgramData, setReceivedProgramData] = useState([]);
+  // //to pass program id to Banner
+  // const [ProgramId, setProgramId] = useState(null);
+  // //to pass programs data to Banner
+  // const [receivedProgramData, setReceivedProgramData] = useState([]);
 
-  const onClickHomeHandler = useCallback(() => {
-    //setIsHomeClicked(true);
-    dispatch({ type: 'HOME' });
-    //setIsListenNowClicked(false);
-  }, []);
+  // const [clickedProgramId, setClickedProgramId] = useState(null);
+  // const [isProgramClicked, setIsProgramClicked] = useState(false);
 
-  const onClickListenNowHandler = useCallback(() => {
-    //setIsListenNowClicked(true);
-    dispatch({ type: 'LISTENNOW' });
-    //setIsHomeClicked(false);
-    console.log('litennow is clicked');
-  }, []);
+  // const onClickProgramHandler = (id, data) => {
+  //   setClickedProgramId(() => id);
+  //   setReceivedProgramData(data);
+  //   setIsProgramClicked(true);
+  //   console.log('Main: clicked');
+  // };
+
+  // const onClickHomeHandler = useCallback(() => {
+  //   //setIsHomeClicked(true);
+  //   dispatch({ type: 'HOME' });
+  //   //setIsListenNowClicked(false);
+  // }, []);
+
+  // const onClickListenNowHandler = useCallback(() => {
+  //   //setIsListenNowClicked(true);
+  //   dispatch({ type: 'LISTENNOW' });
+  //   //setIsHomeClicked(false);
+  //   console.log('litennow is clicked');
+  // }, []);
 
   // const onProgramClickedHandler = (id, data) => {
   //   //setIsHomeClicked(false);
@@ -50,38 +66,58 @@ function App() {
   //   setReceivedProgramData(() => data);
   // };
 
-  //changing the state of isHomeClicked using useEffect depending on the state change with onClickHomeHandler
-  useEffect(() => {
-    // setIsHomeClicked(false);
-    // setIsListenNowClicked(false);
-    dispatch({ type: 'RESET' });
-  }, [onClickHomeHandler, onClickListenNowHandler]);
-
   return (
     <>
       <Navbar
-        onClickHome={onClickHomeHandler}
-        onClickListenNow={onClickListenNowHandler}
+      // onClickHome={onClickHomeHandler}
+      // onClickListenNow={onClickListenNowHandler}
       />
-
-      {/* <Route
-            path="/home"
+      {/* <ClickedProgramIdContext.Provider value={ProgramId}> */}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <MainBanner />
+              <Main
+              // homeClicked={state.isHomeClicked}
+              // listenNowClicked={state.isListenNowClicked}
+              // onProgramClicked={onProgramClickedHandler}
+              // programData={receivedProgramData}
+              />
+            </>
+          }
+        >
+          <Route
+            path="/"
             element={
-              <Banner
-                //clickedProgramId={clickedProgramId}
-                programData={receivedProgramData}
-                homeClicked={isHomeClicked}
-                listenNowClicked={isListenNowClicked}
+              <FourCards
+              // onClickProgram={onClickProgramHandler}
               />
             }
-          /> */}
-
-      <Main
-        homeClicked={state.isHomeClicked}
-        listenNowClicked={state.isListenNowClicked}
-        //onProgramClicked={onProgramClickedHandler}
-        programData={receivedProgramData}
-      />
+          />
+        </Route>
+        <Route
+          path="program/:ProgramId"
+          element={
+            <>
+              <ProgramBanner /> <Playlist />
+            </>
+          }
+        />
+        <Route
+          path="listnnow"
+          element={
+            <>
+              <ListenNowBanner />
+              <Main />
+            </>
+          }
+        >
+          <Route path="/listnnow" element={<ListenNowCards />} />
+        </Route>
+      </Routes>
+      {/* </ClickedProgramIdContext.Provider> */}
     </>
   );
 }

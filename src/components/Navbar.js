@@ -10,15 +10,33 @@ export default function Navbar(props) {
         <h1 className={styles.logo}>BS</h1>
         <nav>
           <ul>
-            <li id="home" onClick={props.onClickHome}>
-              <NavLink to="/home">HOME</NavLink>
+            <li id="home">
+              <NavLink
+                to="/"
+                className={styles.link}
+                style={{ textDecoration: 'none' }}
+              >
+                HOME
+              </NavLink>
             </li>
             <li id="programs">
               {' '}
-              <NavLink to="/programs">PROGRAMS</NavLink>
+              <NavLink
+                to="/programs"
+                className={styles.link}
+                style={{ textDecoration: 'none' }}
+              >
+                PROGRAMS
+              </NavLink>
             </li>
-            <li id="listenNow" onClick={props.onClickListenNow}>
-              <NavLink to="/listennow">LISTEN NOW</NavLink>
+            <li id="listenNow">
+              <NavLink
+                to="/listnnow"
+                className={styles.link}
+                style={{ textDecoration: 'none' }}
+              >
+                LISTEN NOW
+              </NavLink>
             </li>
           </ul>
         </nav>

@@ -1,48 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import FourCards from './FourCards';
-import Playlist from './Playlist';
+import React, { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import classes from '../styles/Main.module.css';
-import ListenNowSingleCard from './ListenNowSingleCard';
-import ListenNowCards from './ListenNowCards';
 
 const MainContent = (props) => {
-  const [clickedProgramId, setClickedProgramId] = useState(null);
-  const [isProgramClicked, setIsProgramClicked] = useState(false);
+  //to pass program id to Banner
+  const [ProgramId, setProgramId] = useState(null);
+  //to pass programs data to Banner
+  const [receivedProgramData, setReceivedProgramData] = useState([]);
 
-  const onClickProgramHandler = (id, data) => {
-    setClickedProgramId(() => id);
-    props.onProgramClicked(id, data);
-    setIsProgramClicked(true);
-    console.log('Main: clicked');
+  const onProgramClickedHandler = (id, data) => {
+    //setIsHomeClicked(false);
+    setProgramId(id);
+    setReceivedProgramData(() => data);
+    console.log('programdata is ', props.programData);
   };
-  useEffect(() => {
-    setIsProgramClicked(false);
-    console.log('is home clicked in Main ', props.homeClicked);
-  }, [props.homeClicked]);
-  console.log('MAIN clickedProgramId is ', clickedProgramId);
-
   return (
-    // <div className={classes.homeMain}>
-    //   <h2 className={classes.homeMainH2}>CHOOSE YOUR NIGHTMARE</h2>
-    //   {(!isProgramClicked || props.homeClicked) && (
-    //     <FourCards onClickProgram={onClickProgramHandler} />
-    //   )}
-    // </div>
-
-    // <FourCards onClickProgramHandler={onClickProgramHandler} />
-
     <div className={classes.homeMain}>
       <h2 className={classes.homeMainH2}>CHOOSE YOUR NIGHTMARE</h2>
-      {(!isProgramClicked || props.homeClicked) && (
-        <FourCards onClickProgram={onClickProgramHandler} />
-      )}
-      {isProgramClicked && !props.homeClicked && !props.listenNowClicked && (
-        <Playlist programId={clickedProgramId} />
-      )}
-      {props.listenNowClicked && !props.homeClicked && !isProgramClicked && (
-        <ListenNowCards />
-      )}
+      <Outlet onProgramClicked={onProgramClickedHandler} />
     </div>
   );
 };

@@ -2,30 +2,29 @@ import React from 'react';
 
 import classes from '../styles/ListenNowSingleCard.module.css';
 
-function ListenNowSingleCard(props) {
+function ListenNowSingleCard({ info }) {
   return (
+    // <div className={classes.listenNowContainer}>
     <div className={classes.listenNowInfoBox}>
-      <img
-        className={classes.imgInListenNow}
-        src={props.episodeData.image}
-        alt={props.episodeData.program.name}
-      />
-
+      <div className={classes.imgInListenNow}>
+        <img src={info.image} alt={info.name} />
+      </div>
       <div className={classes.episodeInfoBox}>
-        <h1>{props.episodeData.name}</h1>
-        <h2>{props.episodeData.title}</h2>
-        <p>{props.episodeData.description}</p>
+        <h1>{info.name}</h1>
+        <h2>{info.title}</h2>
+        <p>{info.description}</p>
 
         <div className={classes.btnAudioContainer}>
           <audio controls>
-            <source src={props.episodeData.src} type="audio/mp3" />
+            <source src={info.src} type="audio/mp3" />
           </audio>
           <button>
-            <a href={props.episodeData.url}>Episode Page</a>
+            <a href={info.url}>Episode Page</a>
           </button>
         </div>
       </div>
     </div>
+    // </div>
   );
 }
 
