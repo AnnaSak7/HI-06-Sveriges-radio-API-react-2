@@ -20,7 +20,6 @@ export default function Navbar(props) {
               </NavLink>
             </li>
             <li id="programs">
-              {' '}
               <NavLink
                 to="/programs"
                 className={styles.link}
@@ -31,7 +30,7 @@ export default function Navbar(props) {
             </li>
             <li id="listenNow">
               <NavLink
-                to="/listnnow"
+                to="/listennow"
                 className={styles.link}
                 style={{ textDecoration: 'none' }}
               >

@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import ListenNowSingleCard from './ListenNowSingleCard';
 import { fourPrograms } from './FourCards';
+
+import classes from '../styles/ListenNowCards.module.css';
 
 var programEpisodeData = [];
 
 const ListenNowCards = () => {
   const [episodesListenNow, setEpisodesListenNow] = useState([]);
-
+  const location = useLocation();
+  console.log('location : ', location.pathname);
   const fetchProgramDataForListenNow = async (program) => {
     try {
       let URL = `https://api.sr.se/api/v2/episodes/index?pagination=false&format=json&programid=${program}`;
@@ -24,9 +28,7 @@ const ListenNowCards = () => {
         url: episode.url,
       };
 
-      console.log('episode.id is ', episode.id);
       programEpisodeData.push(loadedEpisode);
-      console.log('programEpisodeData is  ', programEpisodeData);
       return programEpisodeData;
     } catch (error) {
       console.log('error : ', error);
@@ -36,19 +38,20 @@ const ListenNowCards = () => {
   useEffect(() => {
     fourPrograms.map((program) => fetchProgramDataForListenNow(program));
     setEpisodesListenNow(programEpisodeData);
-
-    console.log('episodesListenNow in effect is ', episodesListenNow);
+    console.log('programEpisodeData is ', programEpisodeData);
     return () => {
       programEpisodeData = [];
+      console.log('programEpisodeData in clean up is ', programEpisodeData);
     };
   }, []);
 
-  console.log('episodesListenNow is ', episodesListenNow);
   return (
     <>
-      {episodesListenNow.map((e) => {
-        return <ListenNowSingleCard info={e} />;
-      })}
+      <div className={classes.container}>
+        {episodesListenNow.map((e) => {
+          return <ListenNowSingleCard info={e} />;
+        })}
+      </div>
     </>
   );
 };

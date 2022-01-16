@@ -106,16 +106,14 @@ function App() {
           }
         />
         <Route
-          path="listnnow"
+          path="listennow"
           element={
             <>
               <ListenNowBanner />
-              <Main />
+              <ListenNowCards />
             </>
           }
-        >
-          <Route path="/listnnow" element={<ListenNowCards />} />
-        </Route>
+        />
       </Routes>
       {/* </ClickedProgramIdContext.Provider> */}
     </>
