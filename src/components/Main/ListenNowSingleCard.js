@@ -5,7 +5,7 @@ import classes from '../styles/ListenNowSingleCard.module.css';
 function ListenNowSingleCard({ info }) {
   return (
     // <div className={classes.listenNowContainer}>
-    <div className={classes.listenNowInfoBox}>
+    <div key={info.id} className={classes.listenNowInfoBox}>
       <div className={classes.imgInListenNow}>
         <img src={info.image} alt={info.name} />
       </div>
@@ -15,7 +15,7 @@ function ListenNowSingleCard({ info }) {
         <p>{info.description}</p>
 
         <div className={classes.btnAudioContainer}>
-          <audio controls>
+          <audio className={classes.audioControl} controls>
             <source src={info.src} type="audio/mp3" />
           </audio>
           <button>

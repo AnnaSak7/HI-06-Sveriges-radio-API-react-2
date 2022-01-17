@@ -7,7 +7,13 @@ export default function Navbar(props) {
   return (
     <>
       <header className={styles.header}>
-        <h1 className={styles.logo}>BS</h1>
+        <NavLink
+          to="/"
+          className={styles.link}
+          style={{ textDecoration: 'none' }}
+        >
+          <h1 className={styles.logo}>BS</h1>
+        </NavLink>
         <nav>
           <ul>
             <li id="home">

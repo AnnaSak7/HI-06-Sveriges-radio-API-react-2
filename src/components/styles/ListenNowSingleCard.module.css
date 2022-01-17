@@ -1,14 +1,14 @@
 .listenNowInfoBox {
   width: 80vw;
-  height: 40vh;
+  height: 45vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
 }
 .listenNowInfoBox .imgInListenNow {
-  max-width: 270px;
-  max-height: 270px;
+  max-width: 250px;
+  max-height: 230px;
 }
 
 .listenNowInfoBox .imgInListenNow img {
@@ -65,4 +65,9 @@
   font-family: 'Bebas Neue', cursive;
   color: #fff;
   padding: 0 20px;
+}
+
+.audioControl {
+  width: 300px;
+  height: 35px;
 }

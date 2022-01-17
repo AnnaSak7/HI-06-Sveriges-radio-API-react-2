@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import ListenNowSingleCard from './ListenNowSingleCard';
 import { fourPrograms } from './FourCards';
 
@@ -9,14 +8,15 @@ var programEpisodeData = [];
 
 const ListenNowCards = () => {
   const [episodesListenNow, setEpisodesListenNow] = useState([]);
-  const location = useLocation();
-  console.log('location : ', location.pathname);
+  //const [programQuantity, setProgramQuantity] = useState(0);
+  const [isAllProgramsFetched, setIsAllProgramsFetched] = useState(false);
+
   const fetchProgramDataForListenNow = async (program) => {
     try {
       let URL = `https://api.sr.se/api/v2/episodes/index?pagination=false&format=json&programid=${program}`;
       let response = await fetch(URL);
       let data = await response.json();
-      console.log('fetching...', data);
+
       const episode = data.episodes[0];
       const loadedEpisode = {
         id: episode.id,
@@ -29,6 +29,11 @@ const ListenNowCards = () => {
       };
 
       programEpisodeData.push(loadedEpisode);
+      if (programEpisodeData.length === fourPrograms.length) {
+        setIsAllProgramsFetched(true);
+      }
+      //setProgramQuantity(programEpisodeData.length);
+      console.log('all fetched in function : ', isAllProgramsFetched);
       return programEpisodeData;
     } catch (error) {
       console.log('error : ', error);
@@ -38,19 +43,23 @@ const ListenNowCards = () => {
   useEffect(() => {
     fourPrograms.map((program) => fetchProgramDataForListenNow(program));
     setEpisodesListenNow(programEpisodeData);
-    console.log('programEpisodeData is ', programEpisodeData);
     return () => {
       programEpisodeData = [];
-      console.log('programEpisodeData in clean up is ', programEpisodeData);
+      setIsAllProgramsFetched(false);
     };
   }, []);
 
+  console.log('all fetched  : ', isAllProgramsFetched);
   return (
     <>
       <div className={classes.container}>
-        {episodesListenNow.map((e) => {
-          return <ListenNowSingleCard info={e} />;
-        })}
+        {isAllProgramsFetched ? (
+          episodesListenNow.map((e) => {
+            return <ListenNowSingleCard info={e} key={e.id} />;
+          })
+        ) : (
+          <div>Loading...</div>
+        )}
       </div>
     </>
   );

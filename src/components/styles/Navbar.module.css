@@ -48,7 +48,8 @@ nav ul li ul li {
 }
 
 nav ul li:focus,
-nav ul li:hover {
-  color: coral;
+nav ul li:hover,
+nav ul li:active {
+  color: #fff;
   cursor: pointer;
 }
