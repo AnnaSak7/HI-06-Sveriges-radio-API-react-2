@@ -40,3 +40,49 @@
   text-shadow: 1px 5px 10px #460101;
   background-color: rgba(210, 204, 204, 0.399);
 }
+
+@media screen and (max-width: 768px) {
+  .banner {
+    width: 100vw;
+    height: 30vh;
+  }
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+  }
+  .bannerH1 {
+    font-size: 3rem;
+  }
+
+  .terror {
+    font-size: 1.3rem;
+  }
+
+  .swedish {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .banner {
+    width: 100vw;
+    height: 30vh;
+  }
+  .title {
+    height: 300px;
+  }
+  .bannerH1 {
+    font-size: 2.5rem;
+  }
+
+  .terror {
+    font-size: 1rem;
+  }
+
+  .swedish {
+    font-size: 0.7rem;
+  }
+}

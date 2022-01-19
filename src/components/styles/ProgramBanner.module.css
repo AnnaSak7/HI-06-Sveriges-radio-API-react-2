@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
   height: 50vh;
   background-image: url('../../../public/assets/creepywoods.jpg');
 }
@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   justify-content: left;
-  margin: 1.5rem 1rem 0 2.5rem;
+  /* margin: 1.5rem 1rem 0 2.5rem; */
 }
 
 .infoBox .programInfoBox h1 {
@@ -36,8 +36,6 @@
   font-family: 'Bebas Neue', cursive;
   background-color: #1313139f;
   border-radius: 10px;
-  padding: 0 1rem;
-  margin: 0;
 }
 
 .infoBox .programInfoBox .btnContainer {
@@ -85,8 +83,123 @@
   height: 13rem;
   margin: 2.5rem 5rem 0 5rem;
 }
+@media screen and (max-width: 997px) {
+  .infoBox .programInfoBox h1 {
+    font-size: 3rem;
+  }
 
-/* img {
-  width: 100%;
-  height: 100%;
-} */
+  .infoBox .programInfoBox p {
+    font-size: 1.5rem;
+  }
+  .infoBox .programInfoBox .btnContainer {
+    flex-direction: row;
+    margin-top: 1rem;
+  }
+  .infoBox .programInfoBox .btnContainer button {
+    width: 200px;
+    height: 75px;
+    margin-right: 3rem;
+  }
+
+  .infoBox .programInfoBox .btnContainer button a {
+    font-size: 1.7rem;
+  }
+
+  .infoBox .programInfoBox .btnContainer img {
+    width: 200px;
+    height: 75px;
+  }
+
+  .infoBox .imgInBanner {
+    width: 11rem;
+    height: 11rem;
+  }
+
+  .infoBox .imgInBanner img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .infoBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    color: #ccc5b9;
+    width: 75vw;
+    height: auto;
+    padding-top: 5rem;
+  }
+
+  .imgBox {
+    display: none;
+  }
+
+  .infoBox .programInfoBox h1 {
+    font-size: 3rem;
+  }
+
+  .infoBox .programInfoBox p {
+    font-size: 1.5rem;
+  }
+
+  .infoBox .programInfoBox .btnContainer {
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
+
+  .infoBox .programInfoBox .btnContainer button {
+    width: 150px;
+    height: 50px;
+    margin-right: 3rem;
+  }
+
+  .infoBox .programInfoBox .btnContainer button a {
+    font-size: 1.4rem;
+  }
+
+  .infoBox .programInfoBox .btnContainer img {
+    width: 150px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .banner {
+    width: 100vw;
+    height: 30vh;
+  }
+  .imgBox {
+    display: none;
+  }
+
+  .infoBox .programInfoBox h1 {
+    font-size: 2rem;
+  }
+
+  .infoBox .programInfoBox p {
+    font-size: 1rem;
+  }
+
+  .infoBox .programInfoBox .btnContainer {
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
+
+  .infoBox .programInfoBox .btnContainer button {
+    width: 150px;
+    height: 50px;
+    margin-right: 3rem;
+  }
+
+  .infoBox .programInfoBox .btnContainer button a {
+    font-size: 1.4rem;
+  }
+
+  .infoBox .programInfoBox .btnContainer img {
+    width: 150px;
+    height: 50px;
+  }
+}

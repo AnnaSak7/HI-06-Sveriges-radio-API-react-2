@@ -36,7 +36,7 @@ const ProgramBanner = (props) => {
               </button>
             </div>
           </div>
-          <div>
+          <div className={classes.imgBox}>
             <img
               className={classes.imgInBanner}
               src={programData.socialimage}

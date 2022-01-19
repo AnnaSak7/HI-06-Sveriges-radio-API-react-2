@@ -1,3 +1,9 @@
+.playlistContainer {
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .playlist {
   margin-left: auto;
   margin-right: auto;
@@ -23,4 +29,51 @@ th {
   font-size: 1.5rem;
   padding: 15px;
   cursor: default;
+}
+
+tr {
+  line-height: 2.5rem;
+}
+td {
+  color: #ccc5b9;
+  font-size: 1.5rem;
+  line-height: 1.7rem;
+  border-top: 1px solid #36372f;
+  transition: background 0.3s ease;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+.episodeImage {
+  height: 7rem;
+  width: 7rem;
+}
+
+.audio {
+  width: 250px;
+  height: 35px;
+}
+
+@media (max-width: 997px) {
+  .playlist thead {
+    display: none;
+  }
+  .playlist,
+  .playlist tbody,
+  .playlist tr,
+  .playlist td {
+    display: block;
+    width: 100%;
+  }
+  .playlist tr {
+    margin-bottom: 1rem;
+  }
+  .playlist tbody tr td {
+    position: relative;
+    text-align: right;
+  }
+  .episodeTitle {
+    color: #faf3dd;
+  }
 }

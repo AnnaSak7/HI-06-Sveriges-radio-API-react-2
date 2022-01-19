@@ -71,3 +71,137 @@
   width: 300px;
   height: 35px;
 }
+
+@media screen and (max-width: 992px) {
+  .listenNowInfoBox .imgInListenNow {
+    max-width: 220px;
+    max-height: 220px;
+  }
+
+  .listenNowInfoBox .episodeInfoBox h1 {
+    font-size: 2.2rem;
+    color: #ccc5b9;
+  }
+
+  .listenNowInfoBox .episodeInfoBox h2 {
+    font-size: 1.4rem;
+    color: #666;
+  }
+
+  .listenNowInfoBox .episodeInfoBox p {
+    font-size: 1.3rem;
+    color: #868975;
+  }
+  .audioControl {
+    width: 220px;
+    height: 40px;
+  }
+
+  .listenNowInfoBox .episodeInfoBox .btnAudioContainer button {
+    width: 220px;
+    height: 40px;
+    margin: 0;
+    margin-left: 1rem;
+  }
+  .listenNowInfoBox .episodeInfoBox .btnAudioContainer a {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .listenNowInfoBox .imgInListenNow {
+    max-width: 180px;
+    max-height: 180px;
+  }
+
+  .listenNowInfoBox .episodeInfoBox h1 {
+    font-size: 2rem;
+    color: #ccc5b9;
+  }
+
+  .listenNowInfoBox .episodeInfoBox h2 {
+    font-size: 1.2rem;
+    color: #666;
+  }
+
+  .listenNowInfoBox .episodeInfoBox p {
+    font-size: 1.1rem;
+    color: #868975;
+  }
+  .audioControl {
+    width: 200px;
+    height: 30px;
+  }
+  .listenNowInfoBox .episodeInfoBox .btnAudioContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  .listenNowInfoBox .episodeInfoBox .btnAudioContainer button {
+    width: 200px;
+    height: 30px;
+    margin: 0;
+    margin-top: 1.2rem;
+  }
+  .listenNowInfoBox .episodeInfoBox .btnAudioContainer a {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .listenNowInfoBox {
+    width: 80vw;
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .listenNowInfoBox .imgInListenNow {
+    max-width: 180px;
+    max-height: 180px;
+  }
+  .listenNowInfoBox .episodeInfoBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80vw;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding-left: 1.5rem;
+  }
+  .listenNowInfoBox .episodeInfoBox h1 {
+    font-size: 1.8rem;
+    color: #ccc5b9;
+  }
+
+  .listenNowInfoBox .episodeInfoBox h2 {
+    font-size: 1rem;
+    color: #666;
+  }
+
+  .listenNowInfoBox .episodeInfoBox p {
+    font-size: 1rem;
+    color: #868975;
+  }
+  .audioControl {
+    width: 200px;
+    height: 30px;
+  }
+  .listenNowInfoBox .episodeInfoBox .btnAudioContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  .listenNowInfoBox .episodeInfoBox .btnAudioContainer button {
+    width: 200px;
+    height: 30px;
+    margin: 0;
+    margin-top: 1.2rem;
+  }
+  .listenNowInfoBox .episodeInfoBox .btnAudioContainer a {
+    font-size: 0.7rem;
+  }
+}

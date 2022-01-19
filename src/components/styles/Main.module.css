@@ -13,3 +13,15 @@
   margin-top: 1rem;
   margin-bottom: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .homeMainH2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .homeMainH2 {
+    font-size: 1.5rem;
+  }
+}

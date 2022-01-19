@@ -49,33 +49,35 @@ const Playlist = (props) => {
 
   return (
     <>
-      <table className={classes.playlist}>
-        <thead>
-          <tr>
-            <th>&nbsp;</th>
-            <th>Title</th>
-            <th>
-              <span className="fa fa-clock-o"></span>
-            </th>
-            <th>Description</th>
-            <th>
-              <i className="far fa-play-circle"></i>
-            </th>
-          </tr>
-        </thead>
-        <tbody id="playlistBody">
-          {episodes.map((episode) => (
-            <Episode
-              key={episode.id}
-              title={episode.title}
-              image={episode.image}
-              duration={episode.duration}
-              description={episode.description}
-              src={episode.src}
-            />
-          ))}
-        </tbody>
-      </table>
+      <div className={classes.playlistContainer}>
+        <table className={classes.playlist}>
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Title</th>
+              <th>
+                <span className="fa fa-clock-o"></span>
+              </th>
+              <th>Description</th>
+              <th>
+                <i className="far fa-play-circle"></i>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="playlistBody">
+            {episodes.map((episode) => (
+              <Episode
+                key={episode.id}
+                title={episode.title}
+                image={episode.image}
+                duration={episode.duration}
+                description={episode.description}
+                src={episode.src}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };

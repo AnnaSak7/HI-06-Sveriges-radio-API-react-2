@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from '../styles/Episode.module.css';
+import classes from '../styles/Playlist.module.css';
 const Episode = (props) => {
   //Change the display of time from seconds
   function secondsToHms(seconds) {
@@ -37,7 +37,7 @@ const Episode = (props) => {
         />
       </td>
 
-      <td>{props.title}</td>
+      <td className={classes.episodeTitle}>{props.title}</td>
       <td>{secondsToHms(props.duration)}</td>
       <td>{props.description}</td>
 

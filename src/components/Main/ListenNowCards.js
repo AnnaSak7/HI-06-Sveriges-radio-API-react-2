@@ -26,6 +26,7 @@ const ListenNowCards = () => {
         description: episode.description,
         src: episode.listenpodfile.url,
         url: episode.url,
+        date: episode.listenpodfile.publishdateutc,
       };
 
       programEpisodeData.push(loadedEpisode);

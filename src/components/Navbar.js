@@ -25,15 +25,7 @@ export default function Navbar(props) {
                 HOME
               </NavLink>
             </li>
-            <li id="programs">
-              <NavLink
-                to="/programs"
-                className={styles.link}
-                style={{ textDecoration: 'none' }}
-              >
-                PROGRAMS
-              </NavLink>
-            </li>
+
             <li id="listenNow">
               <NavLink
                 to="/listennow"
